@@ -1,7 +1,14 @@
 .cat {
-	position: relative;
-	height: 170px;
-	width: 170px * 1.13;
+    position: relative;
+    height: 170px;
+    width: 192px; /* Changed from 170px * 1.13 to explicit value */
+}
+
+.text {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-family: sans-serif;
 }
 
 .ear {
@@ -161,14 +168,15 @@
 }
 
 .muzzle {
-	position: absolute;
-	top: 60%;
-	left: 50%;
-	height: 6%;
-	width: 10%;
-	background: white;
-	transform: translateX(-50%);
-	border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    height: 6%;
+    width: 10%;
+    background: white;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+    cursor: pointer; /* Added to show it's clickable */
 }
 
 /* General page styling */
@@ -179,4 +187,3 @@ html {
   justify-content: center;
   background: black;
 }
-
