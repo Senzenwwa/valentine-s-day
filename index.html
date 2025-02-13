@@ -5,137 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day ❤️</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Cat styling */
-        .cat {
-            position: absolute;
-            width: 100px;
-            height: 80px;
-            transform-origin: 50% 100%;
-            animation: moveCat 8s linear infinite;
-            z-index: 2;
-        }
-
-        .ear {
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 40px solid #ff99cc;
-        }
-
-        .ear--left {
-            transform: rotate(-30deg);
-            left: -10px;
-        }
-
-        .ear--right {
-            transform: rotate(30deg);
-            right: -10px;
-        }
-
-        .face {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: #ff99cc;
-            border-radius: 50%;
-        }
-
-        .eye {
-            position: absolute;
-            top: 25px;
-            width: 15px;
-            height: 15px;
-            background: white;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .eye--left { left: 15px; }
-        .eye--right { right: 15px; }
-
-        .eye-pupil {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #333;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .muzzle {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 20px;
-            background: #ff6666;
-            border-radius: 50%;
-        }
-
-        @keyframes moveCat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(200px, 100px) rotate(10deg); }
-            50% { transform: translate(400px, -50px) rotate(-10deg); }
-            75% { transform: translate(100px, 150px) rotate(5deg); }
-        }
-
-        /* Existing Valentine's styles */
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #ff99cc, #ff66b3);
-            font-family: 'Brush Script MT', cursive;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem 4rem;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 102, 0.3);
-        }
-
-        h1 {
-            color: #cc0066;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            margin: 0 0 1rem 0;
-            animation: pulse 2s infinite;
-        }
-
-        /* Rest of the existing styles... */
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Will you be my valentine?</h1>
-        <div class="cat">
-            <div class="ear ear--left"></div>
-            <div class="ear ear--right"></div>
-            <div class="face">
-                <div class="eye eye--left">
-                    <div class="eye-pupil"></div>
-                </div>
-                <div class="eye eye--right">
-                    <div class="eye-pupil"></div>
-                </div>
-                <div class="muzzle"></div>
-            </div>
-        </div>
+        <h1 class="pulse">Will you be my valentine?</h1>
+        <div id="cat">🐾</div>
         <div class="buttons">
             <button id="yesBtn">Yes! ❤️</button>
             <button id="noBtn">No 😢</button>
@@ -144,26 +18,6 @@
     </div>
     <div id="confetti-container"></div>
 
-    <script>
-        // Add eye follow movement
-        document.addEventListener('mousemove', (e) => {
-            const eyes = document.querySelectorAll('.eye-pupil');
-            eyes.forEach(eye => {
-                const eyeRect = eye.parentElement.getBoundingClientRect();
-                const x = e.clientX - eyeRect.left;
-                const y = e.clientY - eyeRect.top;
-                
-                const angle = Math.atan2(y - 7.5, x - 7.5);
-                const distance = Math.min(3, Math.hypot(x - 7.5, y - 7.5) / 15);
-                
-                eye.style.transform = `translate(
-                    ${Math.cos(angle) * distance}px,
-                    ${Math.sin(angle) * distance}px
-                )`;
-            });
-        });
-
-        // Rest of the previous JavaScript code...
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
