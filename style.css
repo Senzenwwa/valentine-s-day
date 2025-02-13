@@ -1,20 +1,22 @@
 body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #07252d;
-    font-family: arial;
-    overflow: hidden;
-    position: relative;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #07252d;
+  font-family: arial;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .valentine-text {
   position: relative;
-  font-size: 3em;
-  letter-spacing: 5px;
+  font-size: clamp(1.5em, 5vw, 3em);
+  letter-spacing: 3px;
   color: #fff;
   text-transform: capitalize;
   width: 100%;
@@ -23,11 +25,11 @@ body {
   line-height: 0.70em;
   outline: none;
   text-shadow: 0 0 10px #D60620,
-               0 0 20px #F6CDCD,
-               0 0 40px #F6CDCD,
-               0 0 80px #F6CDCD;
+              0 0 20px #F6CDCD,
+              0 0 40px #F6CDCD,
+              0 0 80px #F6CDCD;
   animation: steadyGlow 2s ease-in-out infinite;
-  margin-top: 2em;
+  margin-top: 1em;
   z-index: 2;
 }
 
@@ -47,19 +49,21 @@ body {
 }  
 
 .glowing-title {
-    position: relative;
-    font-size: 4em;
-    letter-spacing: 15px;
-    color: #0e3742;
-    text-transform: capitalize;
-    width: 100%;
-    text-align: center;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#004);
-    line-height: 0.70em;
-    outline: none;
-    animation: animate 5s linear infinite;
-    margin-bottom: 2em;
-    z-index: 2;
+  position: relative;
+  font-size: min(4em, 6vw);
+  letter-spacing: min(15px, 1vw);
+  color: #0e3742;
+  text-transform: capitalize;
+  width: 100%;
+  text-align: center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent,#004);
+  line-height: 1.2em;
+  outline: none;
+  animation: animate 5s linear infinite;
+  margin-bottom: min(2em, 4vh);
+  z-index: 2;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
 @keyframes animate {
@@ -78,36 +82,46 @@ body {
 }
 
 .container {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem 4rem;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 102, 0.3);
-    transition: all 0.5s ease;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+  padding: clamp(2rem, 3vw, 4rem);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 0, 102, 0.3);
+  transition: all 0.5s ease;
+  width: min(90%, 800px);
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
 }
 
 .music-controls {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  z-index: 1000;
+  width: auto;
+  min-width: 300px;
+  backdrop-filter: blur(5px);
 }
 
 .music-controls button {
-    background: #D60620;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
+  background: #D60620;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+  min-width: auto;
 }
 
 .music-controls button:hover {
@@ -116,20 +130,21 @@ body {
 }
 
 .buttons {
-    margin-top: 30px;
-    position: relative;
-    z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
 }
 
 button {
-    padding: 15px 30px;
-    margin: 10px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: clamp(12px, 1.5vw, 20px) clamp(25px, 2.5vw, 40px);
+  font-size: clamp(1em, 1.2vw, 1.4em);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  min-width: 120px;
 }
 
 button:hover {
@@ -150,10 +165,11 @@ button:hover {
 
 #message {
     margin-top: 20px;
-    font-size: 2.5em;
+    font-size: clamp(2em, 3vw, 2.5em);
     color: #cc0066;
-    height: 50px;
+    min-height: 60px;
     transition: all 0.5s ease;
+    word-wrap: break-word;
 }
 
 /* Animation elements */
@@ -204,11 +220,11 @@ button:hover {
     right: 0;
     top: 0;
     bottom: 0;
-    margin: auto;
+    transform: scale(0.8);
+    margin: 40px auto;
     -moz-transform: scale(0.6);
     -ms-transform: scale(0.6);
     -webkit-transform: scale(0.6);
-    transform: scale(0.6);
   }
   
   .rose-container div {
@@ -743,3 +759,62 @@ button:hover {
       box-shadow: 0px 0px 60px #f594b8;
     }
   }
+
+  /* Fix reflection and glow effects for larger screens */
+@media (min-width: 768px) {
+  .glowing-title {
+      -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0,0,0,0.2));
+  }
+  
+  @keyframes animate {
+      0%, 18%, 20%, 50%, 60%, 65%, 80%, 90%, 92% {
+          color: #0e3742;
+          text-shadow: none;
+      }
+      18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+          color: #fff;
+          text-shadow: 0 0 10px #D60620,
+                       0 0 20px #F6CDCD,
+                       0 0 40px #F6CDCD,
+                       0 0 80px #F6CDCD,
+                       0 0 160px #F6CDCD;
+      }
+  }
+}
+
+/* Fix for ultra-wide screens */
+@media (min-width: 1600px) {
+  .container {
+      max-width: 1200px;
+  }
+  
+  .glowing-title {
+      max-width: 1400px;
+  }
+}
+
+  @media (max-width: 480px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .music-controls {
+        padding: 8px;
+        gap: 5px;
+    }
+    
+    .music-controls button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+}

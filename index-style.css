@@ -1,7 +1,8 @@
 .cat {
     position: relative;
-    height: 170px;
-    width: 192px; /* Changed from 170px * 1.13 to explicit value */
+    height: clamp(120px, 30vw, 170px);
+    width: clamp(136px, 34vw, 192px);
+    margin: 0 auto;
 }
 
 .text {
@@ -9,6 +10,7 @@
     color: white;
     margin-top: 20px;
     font-family: sans-serif;
+    font-size: clamp(14px, 4vw, 18px);
 }
 
 .ear {
